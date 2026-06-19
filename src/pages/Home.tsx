@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowDown } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -23,14 +24,17 @@ export default function Home() {
       {/* Botão explorar com seta para baixo
             serve como direcionamento visual para o usuário rolar a página
             ou navegar para a próxima seção */}
-      <div className='flex flex-col items-center gap-2 mt-4'>
-        <span
-          className='text-lg cursor-pointer'
+      <motion.div className='flex flex-col items-center gap-2 mt-4'
           style={{ color: '#2C2C2C' }}
           onClick={() => navigate('/about')}
+          whileHover={{ y: -3 }}
+          transition={{ type: 'spring', stiffness: 300}}
+          >
+        <span
+          className='text-lg cursor-pointer'
         >Explorar</span>
         <ArrowDown size={18} style={{ color: '#2C2C2C'}}/>
-      </div>
+      </motion.div>
     </div>
   </div>
   )

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 // Importa os ícones da Lucide React
 import { Home, User, Code2, Mail, Icon } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, transform } from 'framer-motion'
 
 // Array com os dados de cada item de navegação da sidebar
 // path: rota para onde o item direciona
@@ -26,7 +26,7 @@ export default function Sidebar() {
     return (
         // Sidebar fixa na lateral esquerda, ocupando toda a altura da tela
         <aside className='w-20 min-h-screen flex flex-col items-center py-8 gap-8 border-r border-gray-300'
-            style={{ backgroundColor: 'EDE8E0' }}>
+            style={{ backgroundColor: '#E5E0D7' }}>
 
                 {/*Logo*/}
                 <div
@@ -51,18 +51,18 @@ export default function Sidebar() {
                                 key={path}
                                 onClick={() => navigate(path)}
                                 aria-label={label}
-                                className='relative flex items-center cursor-pointer transition-colors duration-200'
+                                className='relative flex items-center cursor-pointer transition-colors duration-200 hover:bg-gray-200 rounded-lg p-2'
                                 style={{ color: isAtivo ? '#F5A623' : '#2C2C2C' }}
                             >
                                 {/* Barrinha azul animada — desliza para cima ou para baixo
                                     layoutId: o framer-motion usa esse id para animar
                                     a  transição entre posições quando o ícone ativo muda */}
-                                {isAtivo && (
+                                 {isAtivo && (
                                     <motion.span
-                                    layoutId='activeIndicator'
-                                        className='absolute left-[-28px] h-6 w-1 rounded-r-full'
-                                        style={{ backgroundColor: '#3B82F6'}} 
-                                        transition={{ type: 'spring', stiffness: 300, damping: 30}}                                   
+                                        layoutId='activeIndicator'
+                                        className='absolute left-[-20px] top-1/2 h-6 w-1 rounded-r-full'
+                                        style={{ backgroundColor: '#3B82F6', transform: 'translateY(-50%)' }}
+                                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                                     />
                                 )}
                                 <Icon size={22} />
