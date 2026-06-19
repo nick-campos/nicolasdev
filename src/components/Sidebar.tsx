@@ -2,8 +2,14 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 
 // Importa os ícones da Lucide React
-import { Home, User, Code2, Mail, Icon } from 'lucide-react'
+import { Home, User, Code2, Mail, Icon, Moon, Sun } from 'lucide-react'
 import { motion, AnimatePresence, transform } from 'framer-motion'
+import ThemeToggle from './ThemeToggle'
+
+interface HeaderProps {
+    isDark: boolean
+    toggleTheme: () => void
+}
 
 // Array com os dados de cada item de navegação da sidebar
 // path: rota para onde o item direciona
@@ -19,14 +25,18 @@ const navIcons = [
 // Componente da Sidebar — barra lateral fixa em todas as páginas
 // useNavigate: usamos para redirecionar ao clicar em um ícone
 // useLocation: usamos para saber qual página está ativa no momento
-export default function Sidebar() {
+export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
     const navigate = useNavigate()
     const location = useLocation()
 
+    const sideBarStyle = isDark
+        ? 'bg-[#121212]' 
+        : 'bg-[#E5E0D7]'
+
     return (
         // Sidebar fixa na lateral esquerda, ocupando toda a altura da tela
-        <aside className='w-20 min-h-screen flex flex-col items-center py-8 gap-8 border-r border-gray-300'
-            style={{ backgroundColor: '#E5E0D7' }}>
+        <aside className={`w-20 min-h-screen flex flex-col items-center py-5 gap-8 border-r border-gray-300 ${sideBarStyle}`}
+        >
 
                 {/*Logo*/}
                 <div
@@ -38,12 +48,12 @@ export default function Sidebar() {
                 </div>
 
                 {/*Linha abaixo do nome*/}
-                <div className='w-8 h-px' style={{backgroundColor: '#000000'}}/>
+                <div className='w-8 h-px' style={{backgroundColor: isDark ? '#FFFFFF' : '#2C2C2C'}}/>
 
                 {/* Mapeia o array navItems e renderiza um ícone para cada item
                 location.pathname: compara com o path do item para saber qual está ativo
                 O ícone ativo recebe a cor laranja, os demais ficam em cinza escuro */}
-                <nav className='flex flex-col items-center gap-8'>
+                <nav className='flex flex-col items-center gap-8 text-2xl transition-colors'>
                     {navIcons.map(({ path, icon: Icon, label }) => {
                         const isAtivo = location.pathname === path
                         return (
@@ -52,7 +62,7 @@ export default function Sidebar() {
                                 onClick={() => navigate(path)}
                                 aria-label={label}
                                 className='relative flex items-center cursor-pointer transition-colors duration-200 hover:bg-gray-200 rounded-lg p-2'
-                                style={{ color: isAtivo ? '#F5A623' : '#2C2C2C' }}
+                                style={{ color: isAtivo ? '#F5A623' : isDark ? '#FFFFFF' : '#2C2C2C'}}
                             >
                                 {/* Barrinha azul animada — desliza para cima ou para baixo
                                     layoutId: o framer-motion usa esse id para animar
@@ -60,8 +70,8 @@ export default function Sidebar() {
                                  {isAtivo && (
                                     <motion.span
                                         layoutId='activeIndicator'
-                                        className='absolute left-[-20px] top-1/2 h-6 w-1 rounded-r-full'
-                                        style={{ backgroundColor: '#3B82F6', transform: 'translateY(-50%)' }}
+                                        className='absolute left-[-18px] top-1/7 h-8 w-1 rounded-r-full'
+                                        style={{ backgroundColor: isDark ? '#F5A623' : '#3B82F6', transform: 'translateY(-50%)' }}
                                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                                     />
                                 )}
@@ -70,6 +80,13 @@ export default function Sidebar() {
                         )
                     })}
                 </nav>
+
+                <div className='mt-auto pt-4' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+                    <ThemeToggle 
+                        isDark={isDark}
+                        toggleTheme={toggleTheme}
+                    />    
+                </div>    
             </aside>
     )
 }

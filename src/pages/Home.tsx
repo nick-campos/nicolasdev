@@ -2,7 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-export default function Home() {
+interface HomeProps {
+    isDark: boolean
+}
+
+export default function Home({ isDark }: HomeProps ) {
   const navigate = useNavigate()
   
   return (
@@ -13,7 +17,7 @@ export default function Home() {
           text-center: centraliza o título
           max-w-2xl: limita a largura para não esticar demais em telas largas */}
     <div className='flex flex-col items-center gap-6 max-w-2xl px-8'>
-      <h1 className='text-4xl font-bold text-center' style={{ color: '#2C2C2C'}}>Olá. Eu sou Nicolas Campos
+      <h1 className='text-4xl font-bold text-center' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Olá. Eu sou Nicolas Campos
       <span style={{ color: '#F5A623' }}>.</span>
       <br />
       Desenvolvedor{' '}
@@ -31,9 +35,9 @@ export default function Home() {
           transition={{ type: 'spring', stiffness: 300}}
           >
         <span
-          className='text-lg cursor-pointer'
+          className='text-lg cursor-pointer' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}
         >Explorar</span>
-        <ArrowDown size={18} style={{ color: '#2C2C2C'}}/>
+        <ArrowDown size={18} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}/>
       </motion.div>
     </div>
   </div>

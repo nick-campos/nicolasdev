@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTheme } from './hooks/useTheme'
 import { useNavigate } from 'react-router-dom'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
@@ -13,6 +14,7 @@ import './App.css'
 function AppContent() {
   const location = useLocation()
   const navigate = useNavigate()
+  const {isDark, toggleTheme} = useTheme() //trás o estado do tema e a função de alternar para o App
 
   // Define a ordem das páginas para saber para onde ir ao rolar
   const pageOrder = ['/', '/about', '/projects', '/findme']
@@ -50,23 +52,21 @@ function AppContent() {
     //O div externo ocupa a tela toda e define o background fixo
     //flex: coloca a Sidebar e o conteúdo lado a lado horizontalmente
       <div
-        className='flex min-h-screen w-full'
+        className={`flex min-h-screen w-full ${isDark ? 'bg-[#121212]' : 'bg-[#E5E0D7]'}`}
         style={{
-          background: '#E5E0D7',
-          backgroundAttachment: 'fixed',
-        }}
+        backgroundAttachment: 'fixed',
+      }}
       >
       {/* Sidebar fixa no lado esquerdo */}
-      <Sidebar />
+      <Sidebar isDark={isDark} toggleTheme={toggleTheme}/>
 
       {/* Área principal onde as páginas são renderizadas overflow-y-auto: só esta área rola, não a página toda */}
-      <main className='flex-1 overflow-y-auto'>
+      <main className='flex-1 overflow-y-auto '>
 
         {/* AnimatePresence detecta quando uma página sai e outra entra
               mode="wait": espera a página atual sair antes da próxima entrar
               key={location.pathname}: força o React a tratar cada rota como um elemento novo,
               disparando a animação de entrada a cada navegação */}
-
         <AnimatePresence mode='wait'>
           <motion.div
             key={location.pathname}
@@ -75,9 +75,11 @@ function AppContent() {
             exit={{ opacity: 0, y: -40 }}
             transition= {{ duration: 0.4, ease: 'easeInOut' }}
           >
-            <Routes location={location}>
-              <Route path='/' element={<Home />} />
-              <Route path='/about' element={<About />} />
+            <Routes 
+              location={location}
+            >
+              <Route path='/' element={<Home isDark={isDark} />} />
+              <Route path='/about' element={<About isDark={isDark}/>} />
               <Route path='/projects' element={<Projects />} />
               <Route path='/findme' element={<Findme />} />
             </Routes>
