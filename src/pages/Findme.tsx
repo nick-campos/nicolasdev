@@ -8,8 +8,11 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Mail, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+interface FindmeProps {
+    isDark: boolean
+}
 
-export default function Findme() {
+export default function Findme({ isDark }: FindmeProps) {
   // Referência ao formulário, usada pelo EmailJS para capturar os campos
   const formRef = useRef<HTMLFormElement>(null)
   const { t } = useTranslation()
@@ -47,11 +50,11 @@ export default function Findme() {
     <div className='flex items-center justify-center min-h-screen px-20 py-20 gap-16'>
       {/* Coluna esquerda — título, descrição e links sociais */}
       <div className='flex flex-col gap-6 max-w-md'>
-        <h1 className='text-5xl font-bold leading-tight' style= {{ color:'#2C2C2C' }}>
+        <h1 className='text-5xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.title1')}<br /> {t('contact.title2')}
         </h1>
 
-        <p className='text-base leading-relaxed' style={{ color: '#2C2C2C' }}>
+        <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.subtitle')}
         </p>
       </div>
@@ -66,7 +69,7 @@ export default function Findme() {
         >
         <FaGithub size={20} style={{ color: '#000000'}} />
         <div className='flex flex-col'>
-          <span className='text-sm font-medium' style={{ color: '#2C2C2C' }}>GitHub</span>
+          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>GitHub</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>github.com/nick-campos</span>
         </div>
         </a>
@@ -79,7 +82,7 @@ export default function Findme() {
         >
         <FaLinkedin size={20} style={{ color: '#000000'}} />
         <div className='flex flex-col'>
-          <span className='text-sm font-medium' style={{ color: '#2C2C2C' }}>LinkedIn</span>
+          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>LinkedIn</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>linkedin.com/in/nicolascampos</span>
         </div>
         </a>
@@ -90,7 +93,7 @@ export default function Findme() {
         >
         <Mail size={20} style={{ color: '#000000'}} />
         <div className='flex flex-col'>
-          <span className='text-sm font-medium' style={{ color: '#2C2C2C' }}>Email</span>
+          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Email</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>nicolascampos611@gmail.com</span>
         </div>
         </a>

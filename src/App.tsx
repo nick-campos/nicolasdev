@@ -81,7 +81,7 @@ function AppContent() {
               <Route path='/' element={<Home isDark={isDark} />} />
               <Route path='/about' element={<About isDark={isDark}/>} />
               <Route path='/projects' element={<Projects />} />
-              <Route path='/findme' element={<Findme />} />
+              <Route path='/findme' element={<Findme isDark={isDark}/>} />
             </Routes>
           </motion.div>
         </AnimatePresence>
