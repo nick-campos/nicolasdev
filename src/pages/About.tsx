@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowDown } from 'lucide-react'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '../assets/profile.img.jpeg'
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next'
 
 interface AboutProps {
     isDark: boolean
@@ -9,34 +10,32 @@ interface AboutProps {
 
 export default function About({ isDark }: AboutProps) {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     return (
         <div className='flex items-center justify-start min-h-screen px-80 py-20'>
 
             <div className='flex flex-col gap-6 max-w-xl'>
                 <h1 className='text-6xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-                    Quem está por<br /> trás do código?
+                    {t('about.title1')}<br /> {t('about.title2')}
                 </h1>
 
                 <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-                    Tenho 23 anos e atuo como desenvolvedor frontend. Atualmente trabalho com
-                    desenvolvimento voltado para email marketing, onde lido com interfaces HTML/CSS
-                    altamente estruturadas e foco em compatibilidade e performance.
+                    {t('about.paragraph2')}
                 </p>
 
                 <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-                    Minha stack inclui React, JavaScript, TypeScript, Tailwind CSS e integração com APIs.
+                   {t('about.paragraph1')}
                 </p>
 
                 <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-                    Tenho como objetivo evoluir para uma atuação mais sólida como frontend em{' '}
-                    <span style={{ color: '#F5A623'}}>produtos digitais</span>, aprofundando minha
-                    experiência em interfaces, usabilidade e arquitetura de front-end.
+                    {t('about.paragraph2')}{' '}
+                    <span style={{ color: '#F5A623'}}>{t('about.paragraph3Start')}</span>, {t('about.paragraph3Highlight')}
+                    {t('about.paragraph3End')}
                 </p>
 
                 <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-                    Estou em constante transição de foco — buscando sair de um contexto mais técnico
-                    e operacional para um ambiente voltado a produto e experiência do usuário.
+                    {t('about.paragraph4')}
                 </p>
 
                 <motion.div
@@ -46,18 +45,18 @@ export default function About({ isDark }: AboutProps) {
                     transition={{ type: 'spring', stiffness: 300}}
                 >
                     <span className='text-base' style={{ color: isDark ? '#ffffff' : '#2C2C2C' }}>
-                        Meus projetos
+                        {t('about.myProjects')}
                     </span>
                     <ArrowDown size={20} style={{ color: isDark ? '#ffffff' : '#2C2C2C', transform: 'rotate(-90deg)'}}/>
                 </motion.div>
             </div>
 
             {/*Foto pessoal*/}
-                <div className='ml-12 mt-[-450px]'>
+                <div className='ml-12 mt-[-430px]'>
                     <img
                         src={profileImg}
                         alt='Nicolas Campos'
-                        className='w-40 h-40 rounded-full object-cover'
+                        className='w-60 h-60 rounded-full object-cover'
                     ></img>
                 </div>
         </div>

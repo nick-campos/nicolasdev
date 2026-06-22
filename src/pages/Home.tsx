@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowDown } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 interface HomeProps {
     isDark: boolean
@@ -8,6 +9,7 @@ interface HomeProps {
 
 export default function Home({ isDark }: HomeProps ) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   
   return (
     // flex: centraliza o conteúdo vertical e horizontalmente
@@ -17,11 +19,12 @@ export default function Home({ isDark }: HomeProps ) {
           text-center: centraliza o título
           max-w-2xl: limita a largura para não esticar demais em telas largas */}
     <div className='flex flex-col items-center gap-6 max-w-2xl px-8'>
-      <h1 className='text-4xl font-bold text-center' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Olá. Eu sou Nicolas Campos
+      <h1 className='text-4xl font-bold text-center' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>{t('home.greeting')}
       <span style={{ color: '#F5A623' }}>.</span>
       <br />
-      Desenvolvedor{' '}
-      <span style={{ color: '#F5A623' }}>Frontend</span>
+      {t('home.roleBefore') && `${t('home.roleBefore')}`} {' '}
+      <span style={{ color: '#F5A623' }}>{t('home.roleHighlight')}</span>
+      {t('home.roleAfter') && ` ${t('home.roleAfter')}`}
        <span>.</span>
       </h1>
 
@@ -36,7 +39,7 @@ export default function Home({ isDark }: HomeProps ) {
           >
         <span
           className='text-lg cursor-pointer' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}
-        >Explorar</span>
+        >{t('home.explore')}</span>
         <ArrowDown size={18} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}/>
       </motion.div>
     </div>

@@ -6,10 +6,13 @@ import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Mail, ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
 
 export default function Findme() {
   // Referência ao formulário, usada pelo EmailJS para capturar os campos
   const formRef = useRef<HTMLFormElement>(null)
+  const { t } = useTranslation()
 
   // Controla o estado de envio: 'idle' | 'sending' | 'success' | 'error'
   // Usado para dar feedback visual ao usuário durante o envio
@@ -45,11 +48,11 @@ export default function Findme() {
       {/* Coluna esquerda — título, descrição e links sociais */}
       <div className='flex flex-col gap-6 max-w-md'>
         <h1 className='text-5xl font-bold leading-tight' style= {{ color:'#2C2C2C' }}>
-          Vamos criar<br /> algo juntos?
+          {t('contact.title1')}<br /> {t('contact.title2')}
         </h1>
 
         <p className='text-base leading-relaxed' style={{ color: '#2C2C2C' }}>
-          Encontre-me online ou envie uma mensagem direta
+          {t('contact.subtitle')}
         </p>
       </div>
       {/* Links sociais — GitHub, LinkedIn e Email
@@ -103,7 +106,7 @@ export default function Findme() {
         {/* Campo Nome*/}
         <div className='flex flex-col gap-1'>
           <label className='text-xs font-semibold uppercase' style={{ color: '#888888' }}>
-            Seu nome
+            {t('contact.yourName')}
           </label>
           <input
             type='text'
@@ -117,7 +120,7 @@ export default function Findme() {
         {/*Campo Email*/}
         <div className='flex flex-col gap-1'>
           <label className='text-xs font-semibold uppercase' style={{ color: '#888888' }}>
-            Seu email
+            {t('contact.yourEmail')}
           </label>
           <input 
             type='email'
@@ -131,7 +134,7 @@ export default function Findme() {
         {/*Campo Mensagem*/}
         <div className='flex flex-col gap-1'>
           <label className='text-xs font-semibold uppercase' style={{ color: '#888888' }}>
-            Sua mensagem
+            {t('contact.yourMessage')}
           </label>
           <textarea 
             name='message'
@@ -149,19 +152,19 @@ export default function Findme() {
           className='flex items-center justify-center gap-2 rounded-lg py-3 text-sm font-medium cursor-pointer transition-colors duration-200'
           style={{ backgroundColor: '#F5A623', color: '#FFFFFF' }}
         >
-          {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
+          {status === 'sending' ? t('contact.sending') : t('contact.send')}
           {status !== 'sending' && <ArrowRight size={16} />}
         </button>
 
         {/* Mensagens de feedback */}
         {status === 'success' && (
           <p className='text-sm text-center' style={{ color: 'green'}}>
-            Mensagem enviada com sucesso!
+            {t('contact.success')}
           </p>
         )}
         {status === 'error' && (
           <p className='text-sm text-center' style={{ color: 'red'}}>
-            Erro ao enviar. Tente novamente.
+            {t('contact.error')}
           </p>
         )}
       </form>

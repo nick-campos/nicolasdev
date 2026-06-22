@@ -1,0 +1,46 @@
+{
+    "home": {
+        "greeting": "Olá. Eu sou o Nicolas Campos",
+        "roleBefore": "Desenvolvedor",
+        "roleHighlight": "Frontend",
+        "roleAfter": "",
+        "explore": "Explorar"
+    },
+
+    "about": {
+        "title1": "Quem está por",
+        "title2": "trás do código",
+        "paragraph1": "Tenho 23 anos e atuo como desenvolvedor frontend. Atualmente trabalho com desenvolvimento voltado para email marketing, onde lido com interfaces HTML/CSS altamente estruturadas e foco em compatibilidade e performance.",
+        "paragraph2": "Minha stack inclui React, JavaScript, TypeScript, Tailwind CSS e integração com APIs.",
+        "paragraph3Start": "Tenho como objetivo evoluir para uma atuação mais sólida como frontend em",
+        "paragraph3Highlight": "produtos digitais",
+        "paragraph3End": ", aprofundando minha experiência em interfaces, usabilidade e arquitetura de front-end.",
+        "paragraph4": "Estou em constante transição de foco — buscando sair de um contexto mais técnico e operacional para um ambiente voltado a produto e experiência do usuário.",
+        "myProjects": "Meus projetos"
+    },
+
+    "projects": {
+        "title": "Projetos",
+        "description": "Gerenciador de tarefas para o dia a dia profisional",
+        "github": "GitHub"
+    },
+  
+    "contact": {
+        "title1": "Vamos criar",
+        "title2": "algo juntos?",
+        "subtitle": "Encontre-me online ou envie uma mensagem direta.",
+        "yourName": "Seu nome",
+        "yourEmail": "Seu email",
+        "yourMessage": "Sua mensagem",
+        "send": "Enviar mensagem",
+        "sending": "Enviando...",
+        "success": "Mensagem enviada com sucesso!",
+        "error": "Erro ao enviar. Tente novamente."
+    },
+    "sidebar": {
+        "home": "Home",
+        "about": "Sobre mim",
+        "projects": "Projetos",
+        "findme": "Me encontre"
+    }
+}

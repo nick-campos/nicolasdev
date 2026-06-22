@@ -1,16 +1,43 @@
 {
-    "home": {
-        "greeting": "Olá. Eu sou o Nicolas Campos",
-        "role": "Desenvolvedor Frontend",
-        "explore": "Explorar"
-    },
-
-    "about": {
-        "title1": "Quem está por",
-        "title2": "trás do código",
-        "paragraph1": "Tenho 23 anos e atuo como desenvolvedor frontend. Atualmente trabalho com desenvolvimento voltado para email marketing, onde lido com interfaces HTML/CSS altamente estruturadas e foco em compatibilidade e performance.",
-        "paragraph2": "Minha stack inclui React, JavaScript, TypeScript, Tailwind CSS e integração com APIs.",
-        "paragraph3Start": "Tenho como objetivo evoluir para uma atuação mais sólida como frontend em",
-        "paragraph3Highlight"
-    }
+  "home": {
+    "greeting": "Hi. I'm Nicolas Campos",
+    "roleBefore": "",
+    "roleHighlight": "Frontend",
+    "roleAfter": "Developer",
+    "explore": "Explore"
+  },
+  "about": {
+    "title1": "Who's behind",
+    "title2": "the code?",
+    "paragraph1": "I'm 23 years old and work as a frontend developer. I currently work on email marketing development, dealing with highly structured HTML/CSS interfaces with a focus on compatibility and performance.",
+    "paragraph2": "My stack includes React, JavaScript, TypeScript, Tailwind CSS and API integration.",
+    "paragraph3Start": "My goal is to evolve into a more solid frontend role in",
+    "paragraph3Highlight": "digital products",
+    "paragraph3End": ", deepening my experience in interfaces, usability and front-end architecture.",
+    "paragraph4": "I'm in constant transition — moving away from a more technical and operational context towards an environment focused on product and user experience.",
+    "myProjects": "My projects"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Task manager for everyday professional use.",
+    "github": "GitHub"
+  },
+  "contact": {
+    "title1": "Let's create",
+    "title2": "something together?",
+    "subtitle": "Find me online or send a direct message.",
+    "yourName": "Your name",
+    "yourEmail": "Your email",
+    "yourMessage": "Your message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Error sending. Please try again."
+  },
+  "sidebar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "findme": "Find Me"
+  }
 }

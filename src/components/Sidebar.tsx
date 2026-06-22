@@ -2,9 +2,12 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 
 // Importa os ícones da Lucide React
-import { Home, User, Code2, Mail, Icon, Moon, Sun } from 'lucide-react'
-import { motion, AnimatePresence, transform } from 'framer-motion'
+import { Home, User, Code2, Mail } from 'lucide-react'
+import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import TranslateToggle from './TranslateToggle'
+import { useLanguage } from '../hooks/useTranslation'
+import { useTranslation } from 'react-i18next'
 
 interface HeaderProps {
     isDark: boolean
@@ -16,10 +19,10 @@ interface HeaderProps {
 // icon: componente de ícone da Lucide React
 // label: texto alternativo para acessibilidade
 const navIcons = [
-    { path: '/', icon: Home, label:'Home'},
-    { path: '/about', icon: User, label: 'Sobre mim'},
-    { path: '/projects', icon: Code2, label: 'Projetos'},
-    { path: '/findme', icon: Mail, label: 'Me encontre'},
+    { path: '/', icon: Home, labelKey:'sidebar.home'},
+    { path: '/about', icon: User, labelKey: 'sidebar.about'},
+    { path: '/projects', icon: Code2, labelKey: 'sidebar.projects'},
+    { path: '/findme', icon: Mail, labelKey: 'sidebar.findme'},
 ]
 
 // Componente da Sidebar — barra lateral fixa em todas as páginas
@@ -28,10 +31,14 @@ const navIcons = [
 export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
     const navigate = useNavigate()
     const location = useLocation()
+    // Este bloco chama o hook useLanguage dentro da Sidebar.
+    const { currentLanguage, toggleLanguage } = useLanguage()
 
     const sideBarStyle = isDark
         ? 'bg-[#121212]' 
         : 'bg-[#E5E0D7]'
+
+    const { t } = useTranslation()
 
     return (
         // Sidebar fixa na lateral esquerda, ocupando toda a altura da tela
@@ -54,13 +61,13 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
                 location.pathname: compara com o path do item para saber qual está ativo
                 O ícone ativo recebe a cor laranja, os demais ficam em cinza escuro */}
                 <nav className='flex flex-col items-center gap-8 text-2xl transition-colors'>
-                    {navIcons.map(({ path, icon: Icon, label }) => {
+                    {navIcons.map(({ path, icon: Icon, labelKey }) => {
                         const isAtivo = location.pathname === path
                         return (
                             <button
                                 key={path}
                                 onClick={() => navigate(path)}
-                                aria-label={label}
+                                aria-label={t(labelKey)}
                                 className='relative flex items-center cursor-pointer transition-colors duration-200 hover:bg-gray-200 rounded-lg p-2'
                                 style={{ color: isAtivo ? '#F5A623' : isDark ? '#FFFFFF' : '#2C2C2C'}}
                             >
@@ -81,7 +88,16 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
                     })}
                 </nav>
 
+                <div className='mt-auto pt-90'>
+                    <TranslateToggle
+                        isDark={isDark}
+                        currentLanguage={currentLanguage}
+                        toggleLanguage={toggleLanguage}
+                    />
+                </div>
+
                 <div className='mt-auto pt-4' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+                    
                     <ThemeToggle 
                         isDark={isDark}
                         toggleTheme={toggleTheme}

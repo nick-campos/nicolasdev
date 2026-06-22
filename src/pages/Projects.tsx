@@ -2,12 +2,14 @@
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
 import previewProject from '../assets/previewProject.png'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+
 
 // Array com os dados de cada projeto
 const projects = [
   {
     title: ' To Do Task',
-    description: 'Gerenciador de tarefas para o dia a dia profisional',
+    description: 'projects.description',
     stack: 'React, TypeScript, Tailwind CSS, API e Supabase',
     imagem: previewProject,
     github: 'https://github.com/nick-campos/task-manager',
@@ -16,7 +18,8 @@ const projects = [
 
 // Componente da página Projetos
 export default function Projects() {
-  //será útil quando implementar a lógica de navegçaõ de outros projetos
+  const { t } = useTranslation()
+  //será útil quando implementar a lógica de navegção de outros projetos
   //const temMultiplos = projects.length > 1
   
   return (
@@ -52,7 +55,7 @@ export default function Projects() {
                 </h3>
 
                 <p className='text-sm' style={{ color: '#2C2C2C'}}>
-                  {projects[0].description}
+                  {t(projects[0].description)}
                 </p>
 
                 <p className='text-xs' style={{ color: '#888888'}}>
