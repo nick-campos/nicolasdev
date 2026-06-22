@@ -1,0 +1,16 @@
+{
+    "home": {
+        "greeting": "Olá. Eu sou o Nicolas Campos",
+        "role": "Desenvolvedor Frontend",
+        "explore": "Explorar"
+    },
+
+    "about": {
+        "title1": "Quem está por",
+        "title2": "trás do código",
+        "paragraph1": "Tenho 23 anos e atuo como desenvolvedor frontend. Atualmente trabalho com desenvolvimento voltado para email marketing, onde lido com interfaces HTML/CSS altamente estruturadas e foco em compatibilidade e performance.",
+        "paragraph2": "Minha stack inclui React, JavaScript, TypeScript, Tailwind CSS e integração com APIs.",
+        "paragraph3Start": "Tenho como objetivo evoluir para uma atuação mais sólida como frontend em",
+        "paragraph3Highlight"
+    }
+}
