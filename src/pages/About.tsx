@@ -16,7 +16,7 @@ export default function About({ isDark }: AboutProps) {
     justify-center: centraliza o conjunto verticalmente, evitando que estoure a tela
     gap-4 md:gap-0: espaço pequeno entre foto e texto no mobile */}
     return (
-        <div className='flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-80 py-10 md:py-20 gap-4 md:gap-0'>
+        <div className='flex flex-col items-center justify-center h-full px-6 md:px-80 py-10 md:py-20 gap-4 md:gap-0'>
 
             {/* Foto pessoal — vem primeiro no mobile (fica em cima)
             w-20 h-20: bem reduzida no mobile pra não ocupar espaço vertical demais

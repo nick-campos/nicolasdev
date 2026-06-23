@@ -48,7 +48,7 @@ export default function Findme({ isDark }: FindmeProps) {
   {/* flex-col no mobile (empilha texto+links e formulário), flex-row a partir do desktop (lado a lado, como já era)
     items-center: centraliza os blocos no mobile, md:items-start volta ao alinhamento original */}
   return (
-    <div className='flex flex-col md:flex-row items-center md:items-start justify-center min-h-screen px-6 md:px-20 py-20 gap-6 md:gap-16'>
+    <div className='flex flex-col items-center justify-center h-full px-6 md:px-20 py-20 gap-6 md:gap-16'>
       
       {/* Coluna esquerda — título, descrição e links sociais */}
       <div className='flex flex-col items-center md:items-start text-center md:text-left gap-7 max-w-md'>

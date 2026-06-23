@@ -24,7 +24,7 @@ export default function Projects() {
   
   return (
   //px-2: padding lateral ainda mais reduzido no mobile, md:px-20 mantém o original
-  <div className="flex items-center justify-center min-h-screen px-2 md:px-20 py-20 relative">
+  <div className="flex flex-col items-center justify-center h-full px-2 md:px-20 py-20 relative">
 
     {/* left-0: seta colada na borda no mobile (já tem px-2 no container pai), md:left-15 mantém posição original */}
       <motion.button

@@ -15,7 +15,7 @@ export default function Home({ isDark }: HomeProps ) {
       ml-0: sem margem negativa no mobile (não tem sidebar lateral, então não precisa compensar nada)
       md:ml-[-80px]: no desktop, recentraliza o conteúdo compensando o espaço da sidebar fixa */}
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen ml-0 md:ml-[-80px]'>
+    <div className='flex flex-col items-center justify-center h-full ml-0 md:ml-[-80px]'>
 
     {/* Bloco de texto central da Home
           text-center: centraliza o título

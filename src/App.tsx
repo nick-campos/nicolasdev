@@ -116,7 +116,7 @@ return () => {
     //O div externo ocupa a tela toda e define o background fixo
     //flex: coloca a Sidebar e o conteúdo lado a lado horizontalmente
       <div
-        className={`flex min-h-screen w-full ${isDark ? 'bg-[#22281F]' : 'bg-[#E5E0D7]'}`}
+        className={`flex h-screen w-full ${isDark ? 'bg-[#22281F]' : 'bg-[#E5E0D7]'}`}
         style={{
         backgroundAttachment: 'fixed',
       }}
