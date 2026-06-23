@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 // Array com os dados de cada projeto
 const projects = [
   {
-    title: ' To Do Task',
+    title: 'To Do Task',
     description: 'projects.description',
     stack: 'React, TypeScript, Tailwind CSS, API e Supabase',
     imagem: previewProject,
@@ -23,12 +23,13 @@ export default function Projects() {
   //const temMultiplos = projects.length > 1
   
   return (
-    // Container principal centralizado, com a mesma lógica de espaçamento das outras páginas
-    <div className="flex items-center justify-center min-h-screen px-20 py-20 relative">
+    //px-4: padding lateral reduzido no mobile, md:px-20 mantém o original do desktop
+    <div className="flex items-center justify-center min-h-screen px-4 md:px-20 py-20 relative">
 
-      {/* Seta esquerda — sempre visível, mesma lógica da direita */}
+      {/* Seta esquerda — sempre visível, mesma lógica da direita 
+      left-2: seta mais próxima da borda no mobile, md:left-12 mantém posição original */}
             <motion.button
-              className='absolute left-12 cursor-pointer top-1/2 -translate-y-1/2'
+              className='absolute left-2 md:left-15 cursor-pointer top-1/2 -translate-y-1/2'
               style={{ color: '#E48F00' }}
               whileTap={{ scale: 0.55}}
             >
@@ -36,9 +37,9 @@ export default function Projects() {
             </motion.button>
 
             {/* Card do projeto em destaque
-            w-80: largura fixa, mantendo proporção parecida com o mockup */}
+            w-full max-w-[380px]: ocupa a largura disponível no mobile sem ultrapassar 380px, igual ao desktop*/}
             <div
-              className='rounded-2xl overflow-hidden shadow-lg'
+              className='rounded-2xl overflow-hidden shadow-lg w-full max-w-[-380px]'
               style={{ background: '#FFFFFF', width: '380px'}}
             >
               {/* Preview da imagem do projeto */}
@@ -48,8 +49,9 @@ export default function Projects() {
                 className='w-full h-70 object-cover'
               ></img>
 
-              {/* Conteúdo textual do card */}
-              <div className= "p-12 flex flex-col gap-3">
+              {/* Conteúdo textual do card 
+              p-6: padding interno reduzido no mobile, md:p-12 mantém o original do desktop*/}
+              <div className= "p-12 md:p-12 flex flex-col gap-3">
                 <h3 className= "text-xl font-bold" style={{ color: '#2C2C2C'}}>
                   {projects[0].title}
                 </h3>
@@ -75,9 +77,10 @@ export default function Projects() {
                 </motion.a>
               </div>
 
-            {/* Seta direita — sempre visível, mesma lógica da esquerda */}
+            {/* Seta direita — sempre visível, mesma lógica da esquerda 
+            right-2: seta mais próxima da borda no mobile, md:right-12 mantém posição original*/}
             <motion.button
-              className='absolute right-12 cursor-pointer top-1/2 -translate-y-1/2 '
+              className='absolute right-2 md:right-15 cursor-pointer top-1/2 -translate-y-1/2 '
               style={{ color: '#E48F00' }}
               whileTap={{ scale: 0.55}}
             >

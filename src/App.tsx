@@ -52,7 +52,7 @@ function AppContent() {
     //O div externo ocupa a tela toda e define o background fixo
     //flex: coloca a Sidebar e o conteúdo lado a lado horizontalmente
       <div
-        className={`flex min-h-screen w-full ${isDark ? 'bg-[#121212]' : 'bg-[#E5E0D7]'}`}
+        className={`flex min-h-screen w-full ${isDark ? 'bg-[#22281F]' : 'bg-[#E5E0D7]'}`}
         style={{
         backgroundAttachment: 'fixed',
       }}
@@ -60,8 +60,11 @@ function AppContent() {
       {/* Sidebar fixa no lado esquerdo */}
       <Sidebar isDark={isDark} toggleTheme={toggleTheme}/>
 
-      {/* Área principal onde as páginas são renderizadas overflow-y-auto: só esta área rola, não a página toda */}
-      <main className='flex-1 overflow-y-auto '>
+      {/* Empurra o conteúdo para não ficar atrás do header(mobile) no início da página
+        pt-16: compensa a altura do header mobile (h-16)
+        md:pt-0: zera o padding-top no desktop, por que a sidebar não é horizontal
+        md:pl-24: compensa a largura da sidebar fixa no desktop (w-24) */}
+      <main className='flex-1 overflow-y-auto pt-16 md:pt-0 md:pl-24'>
 
         {/* AnimatePresence detecta quando uma página sai e outra entra
               mode="wait": espera a página atual sair antes da próxima entrar

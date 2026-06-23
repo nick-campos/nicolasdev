@@ -47,27 +47,30 @@ export default function Findme({ isDark }: FindmeProps) {
 
   return (
     // Container principal, mesma lógica de espaçamento das outras páginas
-    <div className='flex items-center justify-center min-h-screen px-20 py-20 gap-16'>
+    //px-6: padding lateral reduzido no mobile, md:px-20 mantém o original
+    //gap-6: espaçamento reduzido no mobile, md:gap-16 mantém o original
+    <div className='flex items-center justify-center min-h-screen px-6 md:px-20 py-20 gap-6 md:gap-16'>
       {/* Coluna esquerda — título, descrição e links sociais */}
       <div className='flex flex-col gap-6 max-w-md'>
-        <h1 className='text-5xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+        {/* text-3xl no mobile, md:text-5xl mantém o tamanho original*/}
+        <h1 className='text-3xl md:text-5x1 font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.title1')}<br /> {t('contact.title2')}
         </h1>
 
         <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.subtitle')}
         </p>
-      </div>
-      {/* Links sociais — GitHub, LinkedIn e Email
-              Cada item é clicável e abre em uma nova aba */}
-      <div className='flex flex-col gap-5 mt-4'>
+
+      {/*Links sociais — GitHub, LinkedIn e Email
+        gap-3: espaçamento reduzido no mobile, md:gap-5 mantém o original*/}
+      <div className='flex flex-col gap-3 md:gap-5'>
         <a
         href='https://github.com/nick-campos'
         target='_blank'
         rel='noopener noreferrer'
         className="flex items-center gap-3 cursor-pointer group"
         >
-        <FaGithub size={20} style={{ color: '#000000'}} />
+        <FaGithub size={20} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
         <div className='flex flex-col'>
           <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>GitHub</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>github.com/nick-campos</span>
@@ -80,7 +83,7 @@ export default function Findme({ isDark }: FindmeProps) {
         rel='noopener noreferrer'
         className="flex items-center gap-3 cursor-pointer group"
         >
-        <FaLinkedin size={20} style={{ color: '#000000'}} />
+        <FaLinkedin size={20} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
         <div className='flex flex-col'>
           <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>LinkedIn</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>linkedin.com/in/nicolascampos</span>
@@ -91,19 +94,21 @@ export default function Findme({ isDark }: FindmeProps) {
         href='mailto:nicolascampos611@gmail.com'
         className="flex items-center gap-3 cursor-pointer group"
         >
-        <Mail size={20} style={{ color: '#000000'}} />
+        <Mail size={20} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
         <div className='flex flex-col'>
           <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Email</span>
           <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>nicolascampos611@gmail.com</span>
         </div>
         </a>
       </div>
+      </div>
       
-      {/* Coluna direita — formulário de contato */}
+      {/* Coluna direita — formulário de contato 
+      p-5: padding interno reduzido no mobile, md:p-8 mantém o original*/}
       <form 
         ref={formRef}
         onSubmit={handleSubmit}
-        className='flex flex-col gap-4 p-8 rounded-2xl shadow-lg max-w-md w-full'
+        className='flex flex-col gap-4 p-5 md:p-8 rounded-2xl shadow-lg max-w-md w-full'
         style={{ backgroundColor: '#FFFFFF' }}
       >
         {/* Campo Nome*/}

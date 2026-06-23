@@ -6,17 +6,22 @@ interface TranslateToggleProps {
     toggleLanguage: () => void
 }
 function TranslateToggle({ isDark, currentLanguage, toggleLanguage }: TranslateToggleProps) {
+    
+    {/*Mobile: menor, horizontal, PT | EN
+        Desktop: volta para vertical por causa do md:flex-col
+        Mobile: texto menor com text-[10px]
+        Desktop: volta para text-sm*/}
     return(
         <button
             type='button'
             onClick={toggleLanguage}
             aria-label={"Trocar idioma"}
-            className="inline-flex flex-col items-center gap-1 rounded-full border px-3 py-2 text-sm font-medium transition hover:opacity-80" 
+            className="inline-flex items-center gap-0.5 rounded-full border px-2 py-1 text-[10px] font-medium transition hover:opacity-80 md:flex-col md:gap-1 md:px-3 md:py-1.5 md:text-sm" 
             style={{ color: isDark ? '#ffffff' : '#2C2C2C', borderColor: isDark ? '#ffffff' : '#2C2C2C',}}
         >
-            <span className={currentLanguage === 'pt' ? 'font-bold opacity-100' : 'opacity-40'}>PT</span>
+            <span className={currentLanguage === 'pt' ? 'font-bold opacity-100 cursor-pointer' : 'opacity-50 cursor-pointer'}>PT</span>
             <span className='opacity-40'>—</span>
-            <span className={currentLanguage === 'en' ? 'font-bold opacity-100' : 'opacity-40'}>EN</span>
+            <span className={currentLanguage === 'en' ? 'font-bold opacity-100 cursor-pointer' : 'opacity-50 cursor-pointer'}>EN</span>
         </button>
     )
 }
