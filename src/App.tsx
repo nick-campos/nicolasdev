@@ -25,21 +25,44 @@ function AppContent() {
   {/* Controla a posição inicial do toque, usada para calcular a distância do swipe */}
   const touchStartY = useRef(0)
 
+  // Referência ao <main>, usada para checar a posição de scroll antes de navegar
+  const mainRef = useRef<HTMLElement>(null)
+
+  // Sempre que a rota muda, reseta o scroll do main para o topo
+  // Evita que a próxima página "herde" a posição de scroll da página anterior
   useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTop = 0
+    }
+  }, [location.pathname])
+
+  useEffect(() => {
+    // Verifica se o main está no topo (margem de 5px de tolerância)
+    function estaNoTopo() {
+      return mainRef.current ? mainRef.current.scrollTop <= 5 : true
+    }
+
+    //Verifica se o main está no fim do conteúdo
+    function estaNoFim() {
+      if (!mainRef.current) return true
+      const { scrollTop, scrollHeight, clientHeight } = mainRef.current
+      return scrollTop + clientHeight >= scrollHeight -5
+    }
+  
     function handleWheel(e: WheelEvent) {
       if (isNavegando.current) return
 
       const pageAtual = pageOrder.indexOf(location.pathname)
 
-      // Scroll para baixo -> próxima página
-      if (e.deltaY > 30 && pageAtual < pageOrder.length - 1) {
+      //Só navega para a próxima página se o conteúdo atual já estiver no fim
+      if (e.deltaY > 30 && estaNoFim() && pageAtual < pageOrder.length - 1) {
         isNavegando.current = true
         navigate(pageOrder[pageAtual + 1])
         setTimeout(() => { isNavegando.current = false }, 800)
     }
 
-    // Scroll para cima -> página anterior
-    if (e.deltaY < -30 && pageAtual > 0) {
+    //Só volta para a página anterior se o conteúdo atual já estiver no topo
+    if (e.deltaY < -30 && estaNoTopo() && pageAtual > 0) {
       isNavegando.current = true
       navigate(pageOrder[pageAtual - 1])
       setTimeout(() => { isNavegando.current = false }, 800)
@@ -60,14 +83,14 @@ function AppContent() {
     const pageAtual = pageOrder.indexOf(location.pathname)
 
     // Arrastou para cima -> próxima página (mesma lógica do scroll para baixo)
-    if (distancia > 50 && pageAtual < pageOrder.length -1) {
+    if (distancia > 50 && estaNoFim() && pageAtual < pageOrder.length -1) {
       isNavegando.current = true
       navigate(pageOrder[pageAtual +1])
       setTimeout(() => { isNavegando.current = false }, 800)
     }
 
    // Arrastou para baixo -> página anterior
-    if (distancia < -50 && pageAtual >0) {
+    if (distancia < -50 && estaNoTopo() && pageAtual > 0) {
       isNavegando.current = true
       navigate(pageOrder[pageAtual -1])
       setTimeout(() => { isNavegando.current = false }, 800)
@@ -101,11 +124,8 @@ return () => {
       {/* Sidebar fixa no lado esquerdo */}
       <Sidebar isDark={isDark} toggleTheme={toggleTheme}/>
 
-      {/* Empurra o conteúdo para não ficar atrás do header(mobile) no início da página
-        pt-16: compensa a altura do header mobile (h-16)
-        md:pt-0: zera o padding-top no desktop, por que a sidebar não é horizontal
-        md:pl-24: compensa a largura da sidebar fixa no desktop (w-24) */}
-      <main className='flex-1 overflow-y-auto pt-16 md:pt-0 md:pl-24'>
+      {/* Adicionado ref={mainRef} para o sistema de navegação conseguir checar a posição de scroll */}
+      <main ref={mainRef} className='flex-1 overflow-y-auto pt-16 md:pt-0 md:pl-24'>
 
         {/* AnimatePresence detecta quando uma página sai e outra entra
               mode="wait": espera a página atual sair antes da próxima entrar
