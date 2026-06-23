@@ -1,6 +1,6 @@
 // Importa os ícones usados: setas de navegação e link externo para o GitHub
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
-import previewProject from '../assets/previewProject.png'
+import preview from '../assets/preview.png'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
@@ -11,7 +11,7 @@ const projects = [
     title: 'To Do Task',
     description: 'projects.description',
     stack: 'React, TypeScript, Tailwind CSS, API e Supabase',
-    imagem: previewProject,
+    imagem: preview,
     github: 'https://github.com/nick-campos/task-manager',
   },
 ]
