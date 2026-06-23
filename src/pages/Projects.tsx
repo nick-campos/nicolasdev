@@ -1,6 +1,6 @@
 // Importa os ícones usados: setas de navegação e link externo para o GitHub
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
-import previewProject from '../assets/previewProject.png'
+import previewApp from '../assets/previewApp.png'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
@@ -11,7 +11,7 @@ const projects = [
     title: 'To Do Task',
     description: 'projects.description',
     stack: 'React, TypeScript, Tailwind CSS, API e Supabase',
-    imagem: previewProject,
+    imagem: previewApp,
     github: 'https://github.com/nick-campos/task-manager',
   },
 ]
@@ -46,7 +46,7 @@ export default function Projects() {
               <img
                 src={projects[0].imagem}
                 alt={projects[0].title}
-                className='w-full h-70 object-cover'
+                className='w-full h-80 object-cover'
               ></img>
 
               {/* Conteúdo textual do card 
