@@ -23,70 +23,66 @@ export default function Projects() {
   //const temMultiplos = projects.length > 1
   
   return (
-    //px-4: padding lateral reduzido no mobile, md:px-20 mantém o original do desktop
-    <div className="flex items-center justify-center min-h-screen px-4 md:px-20 py-20 relative">
+  //px-2: padding lateral ainda mais reduzido no mobile, md:px-20 mantém o original
+  <div className="flex items-center justify-center min-h-screen px-2 md:px-20 py-20 relative">
 
-      {/* Seta esquerda — sempre visível, mesma lógica da direita 
-      left-2: seta mais próxima da borda no mobile, md:left-12 mantém posição original */}
-            <motion.button
-              className='absolute left-2 md:left-15 cursor-pointer top-1/2 -translate-y-1/2'
-              style={{ color: '#E48F00' }}
-              whileTap={{ scale: 0.55}}
-            >
-              <ChevronLeft size={28} />
-            </motion.button>
+    {/* left-0: seta colada na borda no mobile (já tem px-2 no container pai), md:left-15 mantém posição original */}
+      <motion.button
+      className='absolute left-0 md:left-15 cursor-pointer top-1/2 -translate-y-1/2'
+      style={{ color: '#E48F00' }}
+      whileTap={{ scale: 0.55}}
+    > 
+        <ChevronLeft size={24} className='md:size-7' />
+      </motion.button>
 
-            {/* Card do projeto em destaque
-            w-full max-w-[380px]: ocupa a largura disponível no mobile sem ultrapassar 380px, igual ao desktop*/}
-            <div
-              className='rounded-2xl overflow-hidden shadow-lg w-full max-w-[-380px]'
-              style={{ background: '#FFFFFF', width: '380px'}}
-            >
-              {/* Preview da imagem do projeto */}
-              <img
-                src={projects[0].imagem}
-                alt={projects[0].title}
-                className='w-full h-80 object-cover'
-              ></img>
+    {/* max-w-[260px]: card bem mais compacto no mobile, md:max-w-[380px] mantém o tamanho original */}
+    <div
+      className='rounded-2xl overflow-hidden shadow-lg w-full max-w-[260px] md:max-w-[380px]'
+      style={{ background: '#FFFFFF'}}
+    >
+    {/* h-40: imagem bem mais baixa no mobile, md:h-80 mantém o original */}
+    <img
+      src={projects[0].imagem}
+      alt={projects[0].title}
+      className='w-full h-40 md:h-80 object-cover'
+    ></img>
 
-              {/* Conteúdo textual do card 
-              p-6: padding interno reduzido no mobile, md:p-12 mantém o original do desktop*/}
-              <div className= "p-12 md:p-12 flex flex-col gap-3">
-                <h3 className= "text-xl font-bold" style={{ color: '#2C2C2C'}}>
-                  {projects[0].title}
-                </h3>
+    {/* p-4: padding interno bem reduzido no mobile, md:p-12 mantém o original */}
+    <div className="p-4 md:p-12 flex flex-col gap-2 md:gap-3">
+      <h3 className= "text-base md:text-xl font-bold" style={{ color: '#2C2C2C'}}>
+      {projects[0].title}
+    </h3>
 
-                <p className='text-sm' style={{ color: '#2C2C2C'}}>
-                  {t(projects[0].description)}
-                </p>
+    <p className='text-xs md:text-sm' style={{ color: '#2C2C2C'}}>
+      {t(projects[0].description)}
+    </p>
 
-                <p className='text-xs' style={{ color: '#888888'}}>
-                  {projects[0].stack}
-                </p>
+    <p className='text-[10px] md:text-xs' style={{ color: '#888888'}}>
+      {projects[0].stack}
+    </p>
 
-                <motion.a
-                href={projects[0].github}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-1 text-sm font-medium mt-2'
-                style={{ color: '#F5A623'}}
-                whileHover={{ y: -3 }}
-                transition={{ type: 'spring', stiffness: 300}}
-                >
-                GitHub <ArrowUpRight size={16} />
-                </motion.a>
-              </div>
-
-            {/* Seta direita — sempre visível, mesma lógica da esquerda 
-            right-2: seta mais próxima da borda no mobile, md:right-12 mantém posição original*/}
-            <motion.button
-              className='absolute right-2 md:right-15 cursor-pointer top-1/2 -translate-y-1/2 '
-              style={{ color: '#E48F00' }}
-              whileTap={{ scale: 0.55}}
-            >
-              <ChevronRight size={28} />
-            </motion.button>
-            </div>
+    <motion.a
+      href={projects[0].github}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='flex items-center gap-1 text-xs md:text-sm font-medium mt-1 md:mt-2'
+      style={{ color: '#F5A623'}}
+      whileHover={{ y: -3 }}
+      transition={{ type: 'spring', stiffness: 300}}
+    >
+      GitHub <ArrowUpRight size={14} className='md:size-4' />
+    </motion.a>
     </div>
+
+    {/* right-0: seta colada na borda no mobile, md:right-15 mantém posição original */}
+    <motion.button
+      className='absolute right-0 md:right-15 cursor-pointer top-1/2 -translate-y-1/2 '
+      style={{ color: '#E48F00' }}
+      whileTap={{ scale: 0.55}}
+    >
+      <ChevronRight size={24} className='md:size-7' />
+    </motion.button>
+    </div>
+  </div>
   )
 }

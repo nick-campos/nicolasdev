@@ -22,6 +22,9 @@ function AppContent() {
   // Controla se já está navegando, evitando disparos múltiplos em um scroll só
   const isNavegando = useRef(false)
 
+  {/* Controla a posição inicial do toque, usada para calcular a distância do swipe */}
+  const touchStartY = useRef(0)
+
   useEffect(() => {
     function handleWheel(e: WheelEvent) {
       if (isNavegando.current) return
@@ -43,8 +46,46 @@ function AppContent() {
     }
   }
 
+  // Guarda a posição Y onde o dedo tocou a tela
+  function handleTouchStart(e: TouchEvent) {
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  // Calcula a distância do arrasto e decide se navega, igual à lógica do wheel
+  function handleTouchEnd(e: TouchEvent) {
+    if (isNavegando.current) return 
+
+    const touchEndY = e.changedTouches[0].clientY
+    const distancia = touchStartY.current - touchEndY
+    const pageAtual = pageOrder.indexOf(location.pathname)
+
+    // Arrastou para cima -> próxima página (mesma lógica do scroll para baixo)
+    if (distancia > 50 && pageAtual < pageOrder.length -1) {
+      isNavegando.current = true
+      navigate(pageOrder[pageAtual +1])
+      setTimeout(() => { isNavegando.current = false }, 800)
+    }
+
+   // Arrastou para baixo -> página anterior
+    if (distancia < -50 && pageAtual >0) {
+      isNavegando.current = true
+      navigate(pageOrder[pageAtual -1])
+      setTimeout(() => { isNavegando.current = false }, 800)
+    }
+  }
+
+{/*Cast para EventListener: o TypeScript não reconhece automaticamente que
+a função recebe um TouchEvent específico ao usar addEventListener genérico,
+então o cast resolve o erro de tipos sem alterar o comportamento em runtime*/}
   window.addEventListener('wheel', handleWheel)
-  return () => window.removeEventListener('wheel', handleWheel)
+  window.addEventListener('touchstart', handleTouchStart as EventListener)
+  window.addEventListener('touchend', handleTouchEnd as EventListener)
+
+return () => {
+  window.removeEventListener('wheel', handleWheel)
+  window.removeEventListener('touchstart', handleTouchStart as EventListener)
+  window.removeEventListener('touchend', handleTouchEnd as EventListener)
+}
 }, [location.pathname, navigate])
 
   return (
