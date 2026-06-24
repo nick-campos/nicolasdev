@@ -47,7 +47,7 @@ export default function Findme({ isDark }: FindmeProps) {
 
     {/* flex-col no mobile (empilhado), md:flex-row restaura o lado-a-lado no desktop, como era antes */}
   return (
-    <div className='flex flex-col md:flex-row items-center justify-center h-full px-6 md:px-20 py-6 md:py-20 gap-3 md:gap-16'>
+    <div className='flex flex-col md:flex-row items-center justify-center h-full px-6 md:px-20 py-6 md:py-20 gap-4 md:gap-16'>
       
       {/* Coluna 1: só título e descrição */}
       <div className='flex flex-col items-center md:items-start text-center md:text-left gap-2 md:gap-7 max-w-md'>
@@ -58,7 +58,7 @@ export default function Findme({ isDark }: FindmeProps) {
         </h1>
 
         <p className='text-sm md:text-base leading-snug md:leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-          {t('contact.subtitle')}
+          {t('contact.subtitle1')}<br /> {t('contact.subtitle2')}
         </p>
       </div>
 

@@ -25,7 +25,8 @@
   "contact": {
     "title1": "Let's create",
     "title2": "something together?",
-    "subtitle": "Find me online or send a direct message.",
+    "subtitle1": "Find me online or",
+    "subtitle2": "send a direct message.",
     "yourName": "Your name",
     "yourEmail": "Your email",
     "yourMessage": "Your message",

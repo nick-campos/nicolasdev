@@ -28,7 +28,8 @@
     "contact": {
         "title1": "Vamos criar",
         "title2": "algo juntos?",
-        "subtitle": "Encontre-me online ou envie uma mensagem direta.",
+        "subtitle1": "Encontre-me online ou",
+        "subtitle2": "envie uma mensagem direta.",
         "yourName": "Seu nome",
         "yourEmail": "Seu email",
         "yourMessage": "Sua mensagem",
