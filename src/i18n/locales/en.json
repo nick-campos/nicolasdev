@@ -18,8 +18,8 @@
     "myProjects": "My projects"
   },
   "projects": {
-    "title": "Projects",
-    "description": "Task manager for everyday professional use.",
+    "description1": "Task manager for everyday professional use.",
+    "description2": "My personal portfolio.",
     "github": "GitHub"
   },
   "contact": {

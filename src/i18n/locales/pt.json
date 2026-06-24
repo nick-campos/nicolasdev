@@ -20,8 +20,8 @@
     },
 
     "projects": {
-        "title": "Projetos",
-        "description": "Gerenciador de tarefas para o dia a dia profisional",
+        "description1": "Gerenciador de tarefas para o dia a dia profisional",
+        "description2": "Meu portifólio pessoal",
         "github": "GitHub"
     },
   

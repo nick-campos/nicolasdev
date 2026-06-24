@@ -16,7 +16,7 @@ function TranslateToggle({ isDark, currentLanguage, toggleLanguage }: TranslateT
             type='button'
             onClick={toggleLanguage}
             aria-label={"Trocar idioma"}
-            className="inline-flex items-center gap-0.5 rounded-full border px-2 py-1 text-[10px] font-medium transition hover:opacity-80 md:flex-col md:gap-1 md:px-3 md:py-1.5 md:text-sm" 
+            className="inline-flex items-center gap-0.5 rounded-full border px-1 py-1 text-[10px] font-medium transition hover:opacity-80 md:flex-col md:gap-1 md:px-3 md:py-1.5 md:text-sm" 
             style={{ color: isDark ? '#ffffff' : '#2C2C2C', borderColor: isDark ? '#ffffff' : '#2C2C2C',}}
         >
             <span className={currentLanguage === 'pt' ? 'font-bold opacity-100 cursor-pointer' : 'opacity-50 cursor-pointer'}>PT</span>

@@ -73,12 +73,12 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
           Desktop: md:flex-col
           Desktop: md:gap-8
           Desktop: md:mt-10 */}
-        <nav className="flex items-center gap-3 text-2xl transition-colors md:mt-10 md:flex-col md:gap-8">
+        <nav className="flex items-center gap-2 text-2xl transition-colors md:mt-10 md:flex-col md:gap-8">
           {navIcons.map(({ path, icon: Icon, labelKey }) => {
             const isAtivo = location.pathname === path
 
             return (
-              //Mobile: padding menor - Desktop: padding norma
+              //Mobile: padding menor - Desktop: padding normal
               <button
                 key={path}
                 onClick={() => navigate(path)}
@@ -101,7 +101,7 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
                 )}
 
                 {/*Mobile: ícone com 20px - Desktop: ícone volta para 22px*/}
-                <Icon size={20} className="md:size-[22px]"/>
+                <Icon size={18} className="md:size-[22px]"/>
               </button>
             )
           })}
@@ -113,7 +113,7 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
         Mobile: gap-2
         Desktop: gap-4*/}
       <div
-        className="ml-4 flex items-center gap-2 md:mt-auto md:flex-col md:gap-4 md:pb-8"
+        className="ml-3 flex items-center gap-1 md:mt-auto md:flex-col md:gap-4 md:pb-8"
         style={{ color: isDark ? '#ffffff' : '#2C2C2C' }}
       >
         <TranslateToggle

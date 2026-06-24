@@ -10,7 +10,7 @@ function ThemeToggle({ isDark, toggleTheme }: ThemeToggleProps) {
     return (
         <button
             onClick={toggleTheme}
-                className='text-sx px-3 py-1.9 rounded transition-colors cursor-pointer'
+                className='text-sx px-2 py-1.9 rounded transition-colors cursor-pointer'
             >
                 {isDark ? <Sun /> : <Moon />}
         </button>
