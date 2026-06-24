@@ -14,7 +14,7 @@ export default function About({ isDark }: AboutProps) {
 
     {/* md:px-32: reduzido de px-80 para px-32, puxando todo o conteúdo mais para a esquerda no desktop */}
     return (
-    <div className='flex flex-col md:flex-row items-center md:items-start justify-center h-full px-10 md:px-32 py-4 md:py-20 gap-2 md:gap-12 overflow-hidden'>
+    <div className='flex flex-col md:flex-row items-center md:items-start justify-center h-full px-10 md:px-32 py-4 md:py-37 gap-2 md:gap-20 overflow-hidden'>
 
     {/* w-16 h-16: foto bem menor no mobile (era w-30), md:w-60 md:h-60 mantém o original */}
     <div className='order-1 md:order-2 mb-2 md:mb-0 md:mt-0 md:self-start'>

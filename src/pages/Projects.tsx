@@ -44,7 +44,7 @@ export default function Projects() {
     <img
       src={projects[0].imagem}
       alt={projects[0].title}
-      className='w-full h-40 md:h-80 object-cover'
+      className='w-full h-65 md:h-80 object-cover'
     ></img>
 
     {/* p-4: padding interno bem reduzido no mobile, md:p-12 mantém o original */}
