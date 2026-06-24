@@ -45,25 +45,25 @@ export default function Findme({ isDark }: FindmeProps) {
       })
   }
 
-  {/* flex-col no mobile (empilha texto+links e formulário), flex-row a partir do desktop (lado a lado, como já era)
-    items-center: centraliza os blocos no mobile, md:items-start volta ao alinhamento original */}
+    {/* flex-col no mobile (empilhado), md:flex-row restaura o lado-a-lado no desktop, como era antes */}
   return (
-    <div className='flex flex-col items-center justify-center h-full px-6 md:px-20 py-20 gap-6 md:gap-16'>
+    <div className='flex flex-col md:flex-row items-center justify-center h-full px-6 md:px-20 py-6 md:py-20 gap-3 md:gap-16'>
       
-      {/* Coluna esquerda — título, descrição e links sociais */}
-      <div className='flex flex-col items-center md:items-start text-center md:text-left gap-7 max-w-md'>
+      {/* Coluna 1: só título e descrição */}
+      <div className='flex flex-col items-center md:items-start text-center md:text-left gap-2 md:gap-7 max-w-md'>
         
         {/* text-3xl no mobile, md:text-5xl mantém o tamanho original*/}
-        <h1 className='text-3xl md:text-5xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+        <h1 className='text-2xl md:text-5xl font-bold leading-tight md:max-w-[480px]' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.title1')}<br /> {t('contact.title2')}
         </h1>
 
-        <p className='text-base leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+        <p className='text-sm md:text-base leading-snug md:leading-relaxed' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
           {t('contact.subtitle')}
         </p>
+      </div>
 
-      {/* items-center no mobile centraliza os links, md:items-start volta ao alinhamento original */}
-      <div className='flex flex-col items-center gap-4 md:gap-5'>
+      {/* Coluna 2: links sociais, agora isolados como segunda coluna no desktop */}
+      <div className='flex flex-col items-center gap-2 md:gap-5'>
         <a
         href='https://github.com/nick-campos'
         target='_blank'
@@ -72,9 +72,9 @@ export default function Findme({ isDark }: FindmeProps) {
         >
         <div className='flex items-center gap-2'>
           <FaGithub size={18} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
-          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>GitHub:</span>
+          <span className='text-xs font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>GitHub:</span>
         </div>
-        <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>github.com/nick-campos</span>
+        <span className='text-xs group-hover:underline' style={{ color: '#F5A623' }}>github.com/nick-campos</span>
         </a>
 
         <a
@@ -85,9 +85,9 @@ export default function Findme({ isDark }: FindmeProps) {
         >
         <div className='flex items-center gap-2'>
           <FaLinkedin size={18} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
-          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>LinkedIn:</span>
+          <span className='text-xs font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>LinkedIn:</span>
         </div>
-        <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>linkedin.com/in/nicolascampos</span>
+        <span className='text-xs group-hover:underline' style={{ color: '#F5A623' }}>linkedin.com/in/nicolascampos</span>
         </a>
 
         <a
@@ -96,19 +96,17 @@ export default function Findme({ isDark }: FindmeProps) {
         >
         <div className='flex items-center gap-2'>
           <Mail size={18} style={{ color: isDark ? '#ffffff' : '#2C2C2C'}} />
-          <span className='text-sm font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Email: </span>
+          <span className='text-xs font-medium' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>Email: </span>
         </div>
-        <span className='text-sm group-hover:underline' style={{ color: '#F5A623' }}>nicolascampos611@gmail.com</span>
+        <span className='text-xs group-hover:underline' style={{ color: '#F5A623' }}>nicolascampos611@gmail.com</span>
         </a>
       </div>
-    </div>
       
-      {/* Coluna direita — formulário de contato 
-      p-5: padding interno reduzido no mobile, md:p-8 mantém o original*/}
+      {/* Coluna 3: formulário, sem mudança */}
       <form 
         ref={formRef}
         onSubmit={handleSubmit}
-        className='flex flex-col gap-4 p-5 md:p-8 rounded-2xl shadow-lg max-w-md w-full'
+        className='flex flex-col gap-2 md:gap-4 p-4 md:p-8 rounded-2xl shadow-lg max-w-md w-full'
         style={{ backgroundColor: '#FFFFFF' }}
       >
         {/* Campo Nome*/}

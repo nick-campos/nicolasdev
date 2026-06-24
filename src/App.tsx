@@ -134,6 +134,7 @@ return () => {
         <AnimatePresence mode='wait'>
           <motion.div
             key={location.pathname}
+            className='h-full'
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
