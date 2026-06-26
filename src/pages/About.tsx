@@ -3,6 +3,7 @@ import { ArrowDown } from 'lucide-react'
 import profileImg from '../assets/profile.img.jpeg'
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next'
+import  Typewriter  from 'typewriter-effect'
 
 interface AboutProps {
     isDark: boolean
@@ -25,12 +26,20 @@ export default function About({ isDark }: AboutProps) {
         ></img>
     </div>
 
-    {/* gap-1.5: espaçamento entre parágrafos bem reduzido no mobile (era gap-3) */}
-    <div className='order-2 md:order-1 flex flex-col items-center md:items-start gap-3.5 md:gap-6 max-w-xl'>
+    {/*Container que armazena o texto principal e os paragráfos*/}
+    <div className='order-2 md:order-1 flex flex-col items-center md:items-start gap-3.5 md:gap-6 max-w-2xl'>
         
         {/* text-lg no mobile (era text-3xl), md:text-6xl mantém o original */}
-        <h1 className='text-3xl md:text-6xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
-            {t('about.title1')}<br /> {t('about.title2')}
+        <h1 className='min-h-20 md:min-h-40 text-center md:text-left text-3xl md:text-6xl font-bold leading-tight' style={{ color: isDark ? '#ffffff' : '#2C2C2C'}}>
+            <Typewriter
+            onInit={(typewriter) => {
+                typewriter
+                    .typeString(t('about.title1'))
+                    .typeString('\n')
+                    .typeString(t('about.title2'))
+                    .start();
+            }   }
+            />
         </h1>
 
         {/* text-[11px] no mobile (era text-sm), md:text-base mantém o original */}
