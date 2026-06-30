@@ -10,6 +10,7 @@ import Findme from './pages/Findme'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import './App.css'
+import ScrollProgress from './components/ScrollProgress'
 
 function AppContent() {
   const location = useLocation()
@@ -121,8 +122,10 @@ return () => {
         backgroundAttachment: 'fixed',
       }}
       >
-      {/* Sidebar fixa no lado esquerdo */}
+      {/*Manda isDark e toggleTheme pro Sidebar */}
       <Sidebar isDark={isDark} toggleTheme={toggleTheme}/>
+
+      <ScrollProgress isDark={isDark}/>
 
       {/* Adicionado ref={mainRef} para o sistema de navegação conseguir checar a posição de scroll */}
       <main ref={mainRef} className='flex-1 overflow-y-auto pt-16 md:pt-0 md:pl-24'>

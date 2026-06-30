@@ -2,7 +2,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { Home, User, Code2, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-
 import ThemeToggle from './ThemeToggle'
 import TranslateToggle from './TranslateToggle'
 import { useLanguage } from '../hooks/useTranslation'
@@ -24,7 +23,6 @@ export default function Sidebar({ isDark, toggleTheme }: HeaderProps) {
   const location = useLocation()
   const { t } = useTranslation()
   const { currentLanguage, toggleLanguage } = useLanguage()
-
   const sideBarStyle = isDark ? 'bg-[#22281F]' : 'bg-[#E5E0D7]'
 
   return (
