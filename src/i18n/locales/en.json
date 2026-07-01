@@ -9,12 +9,12 @@
   "about": {
     "title1": "Who's behind",
     "title2": "the code?",
-    "paragraph1": "I'm 23 years old and work as a frontend developer. I currently work on email marketing development, dealing with highly structured HTML/CSS interfaces with a focus on compatibility and performance.",
-    "paragraph2": "My stack includes React, JavaScript, TypeScript, Tailwind CSS and API integration.",
-    "paragraph3Start": "My goal is to evolve into a more solid frontend role in",
-    "paragraph3Highlight": "digital products",
-    "paragraph3End": ", deepening my experience in interfaces, usability and front-end architecture.",
-    "paragraph4": "I'm in constant transition — moving away from a more technical and operational context towards an environment focused on product and user experience.",
+    "paragraph1": "I am a front-end developer focused on React, TypeScript, and JavaScript.",
+    "paragraph2": "I enjoy building web interfaces that are clear, functional, and well-structured.",
+    "paragraph3Start": "I work primarily on component-based application architecture, consuming REST APIs, and",
+    "paragraph3Highlight": "developing responsive interfaces",
+    "paragraph3End": "always aiming to write organized, maintainable code.",
+    "paragraph4": "In my projects, I explore concepts such as authentication, state management, and real-time data integration. I am also familiar with back-end development using Node.js, particularly in creating and consuming APIs.",
     "myProjects": "My projects"
   },
   "projects": {

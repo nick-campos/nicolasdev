@@ -10,12 +10,12 @@
     "about": {
         "title1": "Quem está por",
         "title2": "trás do código",
-        "paragraph1": "Tenho 23 anos e atuo como desenvolvedor frontend. Atualmente trabalho com desenvolvimento voltado para email marketing, onde lido com interfaces HTML/CSS altamente estruturadas e foco em compatibilidade e performance.",
-        "paragraph2": "Minha stack inclui React, JavaScript, TypeScript, Tailwind CSS e integração com APIs.",
-        "paragraph3Start": "Tenho como objetivo evoluir para uma atuação mais sólida como frontend em",
-        "paragraph3Highlight": "produtos digitais",
-        "paragraph3End": "aprofundando minha experiência em interfaces, usabilidade e arquitetura de front-end.",
-        "paragraph4": "Estou em constante transição de foco — buscando sair de um contexto mais técnico e operacional para um ambiente voltado a produto e experiência do usuário.",
+        "paragraph1": "Sou desenvolvedor Front-End focado em React, TypeScript e JavaScript.",
+        "paragraph2": "Gosto de construir interfaces web que sejam claras, funcionais e bem estruturadas.",
+        "paragraph3Start": "Trabalho principalmente com componentização de aplicações, consumo de APIs REST e",
+        "paragraph3Highlight": "desenvolvimento de interfaces responsivas",
+        "paragraph3End": "sempre buscando escrever código organizado e fácil de evoluir.",
+        "paragraph4": "Nos meus projetos, exploro conceitos como autenticação, gerenciamento de estado e integração com dados em tempo real. Também tenho familiaridade com desenvolvimento backend com Node.js, principalmente na criação e consumo de APIs.",
         "myProjects": "Meus projetos"
     },
 
